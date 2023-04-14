@@ -5,7 +5,7 @@
     <group unless="$(arg sim)">
         <include file="$(find schunk_bringup)/launch/schunk_bringup.launch" />
         <node pkg="rosservice" type="rosservice" name="sdh_controller_init" args="call --wait /sdh_controller/init" />
-        <include file="$(find openni2_launch)/launch/openni2.launch" />
+        <!--include file="$(find openni2_launch)/launch/openni2.launch" /-->
     </group>
 
     <group  if="$(arg sim)">

@@ -64,7 +64,7 @@ class SDHInterface(object):
 
         if self.joint_names is not None:
             point = JointTrajectoryPoint()
-            point.positions = joint_pos.tolist()
+            point.positions = list(joint_pos)
             point.time_from_start = rospy.Duration(time)
 
             traj = JointTrajectory()
@@ -123,7 +123,7 @@ class SDHInterface(object):
     def cmdOpen(self):
         self.cmdZeroJointVel()
         joint_pos = [np.pi/3, -np.pi/4, np.pi/6, -np.pi/4, np.pi/6, -np.pi/4,  np.pi/6]
-        self.cmdJointState(joint_pos, time=1.0)
+        self.cmdJointState(joint_pos, time=3.0)
 
     def get_info(self):
         return self.tactile_data, self.contact_info, self.joint_state
